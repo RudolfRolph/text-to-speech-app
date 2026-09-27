@@ -1,0 +1,54 @@
+/* Styles the main body of the page */
+body {
+    font-family: Arial, sans-serif; /* Changes the text to Arial font */
+    display: flex; /* Uses a flexible layout system */
+    justify-content: center; /* Centers items left-to-right */
+    align-items: center; /* Centers items top-to-bottom */
+    min-height: 100vh; /* Makes the body take up 100% of the screen height */
+    margin: 0; /* Removes the default white space around the edges */
+    background-color: #f4f4f9; /* Sets a light gray background color */
+}
+
+/* Styles the box that holds everything */
+.container {
+    background: white; /* Makes the box background white */
+    padding: 2rem; /* Adds space inside the box around the text */
+    border-radius: 8px; /* Rounds the corners of the box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow behind the box */
+    width: 90%; /* Makes the box take up 90% of the screen width */
+    max-width: 500px; /* But stops it from getting wider than 500 pixels */
+    text-align: center; /* Centers the text inside the box */
+}
+
+/* Styles the main title */
+h1 {
+    color: #333; /* Sets the text color to dark gray */
+}
+
+/* Styles the text input box */
+textarea {
+    width: 100%; /* Makes the box stretch across the whole container */
+    height: 150px; /* Makes the box 150 pixels tall */
+    padding: 10px; /* Adds space inside so text isn't touching the edges */
+    border: 1px solid #ccc; /* Adds a thin gray border */
+    border-radius: 4px; /* Slightly rounds the corners of the input box */
+    box-sizing: border-box; /* Makes sure padding doesn't make the box bigger than 100% */
+    font-size: 16px; /* Sets the text size */
+    margin-bottom: 1rem; /* Adds space below the box before the button */
+}
+
+/* Styles the Speak button */
+button {
+    background-color: #007bff; /* Sets a nice blue color */
+    color: white; /* Sets the text color to white */
+    border: none; /* Removes the default border */
+    padding: 10px 20px; /* Adds space inside the button */
+    font-size: 16px; /* Sets the text size */
+    border-radius: 4px; /* Rounds the button corners */
+    cursor: pointer; /* Changes the mouse to a pointing hand when hovering */
+}
+
+/* Changes the button color when the mouse hovers over it */
+button:hover {
+    background-color: #0056b3; /* Makes the blue darker */
+}
