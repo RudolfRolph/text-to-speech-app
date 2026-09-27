@@ -1,0 +1,32 @@
+<!--Tells the brozser that this is HTMML5 document-->
+<!DOCTYPE html>
+<!--The main container for the page, "en"means the language is English-->
+<html lang ="en">
+<!--The Head holds information that isnt visible on the page itself-->
+<head>
+    <!--Tells the browser how to read characters (like letters and symbols)-->
+    <meta charset="UTF-8">
+    <!--Makes the page look god on Mobiles phones too-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--The text that shows up in the browser tab-->
+    <title> Text to Speech converter</title>
+    <!--Connect our css file to make the page look pretty-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<!--The body holding everything the user actually sees-->
+<body>
+    <!--A box to hold all our elements and keep them centered-->
+    <div class="container">
+        <!--A big title-->
+        <h1>Text to Speech</h1>
+        <!--A box where the user types their text. "id" is a name enabling javascript to find it-->
+        <textarea id="text-input"placeholder="Type your tgext here..."></textarea>
+        <!--A button the user clicks. It also has name tag (id)-->
+        <button id="speak-btn">Speak</button>
+    </div>
+    <!--Connects our Javascript file to make the  button actually work-->
+    <script src="script.js"></script>
+</body>
+<!--Closes The HTML document-->
+</html>
+        
