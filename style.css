@@ -1,54 +1,170 @@
-/* Styles the main body of the page */
 body {
-    font-family: Arial, sans-serif; /* Changes the text to Arial font */
-    display: flex; /* Uses a flexible layout system */
-    justify-content: center; /* Centers items left-to-right */
-    align-items: center; /* Centers items top-to-bottom */
-    min-height: 100vh; /* Makes the body take up 100% of the screen height */
-    margin: 0; /* Removes the default white space around the edges */
-    background-color: #f4f4f9; /* Sets a light gray background color */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f4f4f9;
 }
 
-/* Styles the box that holds everything */
 .container {
-    background: white; /* Makes the box background white */
-    padding: 2rem; /* Adds space inside the box around the text */
-    border-radius: 8px; /* Rounds the corners of the box */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow behind the box */
-    width: 90%; /* Makes the box take up 90% of the screen width */
-    max-width: 500px; /* But stops it from getting wider than 500 pixels */
-    text-align: center; /* Centers the text inside the box */
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 600px;
+    text-align: center;
 }
 
-/* Styles the main title */
 h1 {
-    color: #333; /* Sets the text color to dark gray */
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 
-/* Styles the text input box */
+/* MODE SELECTOR STYLES */
+.mode-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    background: #e9ecef;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+.mode-selector button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    color: #6c757d;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+/* This is the look of the SELECTED button */
+.mode-selector button.active {
+    background: white;
+    color: #007bff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* PANEL STYLES (Hidden vs Shown) */
+.panel {
+    display: none; /* Hide all panels by default */
+}
+
+.panel.active {
+    display: block; /* Show only the panel with the 'active' class */
+}
+
+.instruction {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
 textarea {
-    width: 100%; /* Makes the box stretch across the whole container */
-    height: 150px; /* Makes the box 150 pixels tall */
-    padding: 10px; /* Adds space inside so text isn't touching the edges */
-    border: 1px solid #ccc; /* Adds a thin gray border */
-    border-radius: 4px; /* Slightly rounds the corners of the input box */
-    box-sizing: border-box; /* Makes sure padding doesn't make the box bigger than 100% */
-    font-size: 16px; /* Sets the text size */
-    margin-bottom: 1rem; /* Adds space below the box before the button */
+    width: 100%;
+    height: 120px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 18px;
+    margin-bottom: 1rem;
+    resize: vertical;
 }
 
-/* Styles the Speak button */
+/* NEW: The box that shows the transcribed speech */
+.transcript-box {
+    width: 100%;
+    min-height: 120px;
+    padding: 15px;
+    border: 2px dashed #28a745; /* Green dashed border */
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 22px; /* Big text so it's easy to read */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 1rem;
+    background: #f8fff8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+/* BUTTON STYLES */
 button {
-    background-color: #007bff; /* Sets a nice blue color */
-    color: white; /* Sets the text color to white */
-    border: none; /* Removes the default border */
-    padding: 10px 20px; /* Adds space inside the button */
-    font-size: 16px; /* Sets the text size */
-    border-radius: 4px; /* Rounds the button corners */
-    cursor: pointer; /* Changes the mouse to a pointing hand when hovering */
+    border: none;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
 }
 
-/* Changes the button color when the mouse hovers over it */
-button:hover {
-    background-color: #0056b3; /* Makes the blue darker */
+#speak-btn {
+    background-color: #007bff;
+    color: white;
+}
+
+#speak-btn:hover {
+    background-color: #0056b3;
+}
+
+#listen-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+#listen-btn:hover {
+    background-color: #218838;
+}
+
+/* EQUALIZER STYLES */
+.equalizer {
+    display: none; 
+    justify-content: center;
+    align-items: flex-end;
+    height: 50px;
+    gap: 6px; 
+    margin-top: 20px;
+}
+
+.equalizer.active {
+    display: flex;
+}
+
+.bar {
+    width: 12px;
+    background-color: #28a745; 
+    border-radius: 6px;
+    animation: bounce 0.8s infinite alternate; 
+}
+
+.bar:nth-child(1) { height: 20px; animation-delay: 0.1s; }
+.bar:nth-child(2) { height: 40px; animation-delay: 0.3s; }
+.bar:nth-child(3) { height: 25px; animation-delay: 0.5s; }
+.bar:nth-child(4) { height: 45px; animation-delay: 0.2s; }
+.bar:nth-child(5) { height: 30px; animation-delay: 0.4s; }
+
+@keyframes bounce {
+    0% { transform: scaleY(0.5); }
+    100% { transform: scaleY(1.5); }
+}
+
+#status {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #d9534f; 
+    min-height: 20px;
 }
