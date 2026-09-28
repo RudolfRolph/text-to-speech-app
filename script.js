@@ -35,28 +35,28 @@ function speakText() {
         alert('Please enter some text.');
         return;
     }
+    
     const utterance = new SpeechSynthesisUtterance(text);
+    
+    // NEW: This tells the computer what to do when it finishes speaking
+    utterance.onend = () => {
+        // It clears the text box completely so it's ready for the next sentence
+        textInput.value = ''; 
+    };
+    
     window.speechSynthesis.speak(utterance);
 }
 
 speakButton.addEventListener('click', speakText);
 
-// NEW: This is the updated keyboard logic
+// Keyboard logic: Enter to speak, Shift+Enter for a new line
 textInput.addEventListener('keydown', (event) => {
-    // Check if the key pressed was the "Enter" key
     if (event.key === 'Enter') {
-        
-        // Check if the SHIFT key was ALSO held down
         if (event.shiftKey) {
-            // If Shift + Enter was pressed, we do NOTHING special.
-            // We let the browser do its normal thing: create a new line.
-            return; 
+            return; // Let Shift+Enter make a new line
         } else {
-            // If Enter was pressed ALONE:
-            // 1. Stop the browser from making a new line
             event.preventDefault(); 
-            // 2. Speak the text
-            speakText();
+            speakText(); // Enter alone speaks the text
         }
     }
 });
