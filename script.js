@@ -6,6 +6,7 @@ const sttPanel = document.getElementById('stt-panel');
 
 const textInput = document.getElementById('text-input');
 const speakButton = document.getElementById('speak-btn');
+const emotionSelect = document.getElementById('emotion-select'); // NEW
 
 const listenButton = document.getElementById('listen-btn');
 const statusText = document.getElementById('status');
@@ -36,11 +37,35 @@ function speakText() {
         return;
     }
     
-    const utterance = new SpeechSynthesisUtterance(text);
+    // NEW: Get the selected emotion from the dropdown
+    const emotion = emotionSelect.value;
     
-    // NEW: This tells the computer what to do when it finishes speaking
+    const utterance = new SpeechSynthesisUtterance(text);
+
+    // NEW: Apply different pitch and rate values based on emotion
+    if (emotion === 'happy') {
+        utterance.pitch = 1.4;  // Higher pitch
+        utterance.rate = 1.1;   // Slightly faster
+    } else if (emotion === 'excited') {
+        utterance.pitch = 1.8;  // Much higher pitch
+        utterance.rate = 1.3;   // Faster speed
+    } else if (emotion === 'sad') {
+        utterance.pitch = 0.7;  // Lower pitch
+        utterance.rate = 0.8;   // Slower speed
+    } else if (emotion === 'tired') {
+        utterance.pitch = 0.6;  // Very low pitch
+        utterance.rate = 0.6;   // Very slow speed
+    } else if (emotion === 'monotone') {
+        utterance.pitch = 1.0;  // Flat, normal pitch
+        utterance.rate = 0.9;   // Slightly slow, robotic
+    } else {
+        // Neutral (Default)
+        utterance.pitch = 1.0;
+        utterance.rate = 1.0;
+    }
+    
+    // Clear the text box when done speaking
     utterance.onend = () => {
-        // It clears the text box completely so it's ready for the next sentence
         textInput.value = ''; 
     };
     
@@ -49,14 +74,13 @@ function speakText() {
 
 speakButton.addEventListener('click', speakText);
 
-// Keyboard logic: Enter to speak, Shift+Enter for a new line
 textInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
         if (event.shiftKey) {
-            return; // Let Shift+Enter make a new line
+            return; 
         } else {
             event.preventDefault(); 
-            speakText(); // Enter alone speaks the text
+            speakText(); 
         }
     }
 });

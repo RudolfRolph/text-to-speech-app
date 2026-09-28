@@ -19,6 +19,20 @@
         <!-- PANEL 1: TEXT TO SPEECH (For Mute Users) -->
         <div id="tts-panel" class="panel active">
             <p class="instruction">Type your message below. The computer will speak it for you.</p>
+            
+            <!-- NEW: The Emotion Dropdown Box -->
+            <div class="emotion-container">
+                <label for="emotion-select">Choose Emotion:</label>
+                <select id="emotion-select">
+                    <option value="neutral">😐 Neutral</option>
+                    <option value="happy">😊 Happy</option>
+                    <option value="excited">🤩 Excited</option>
+                    <option value="sad">😢 Sad</option>
+                    <option value="tired">😴 Tired</option>
+                    <option value="monotone">🤖 Monotone</option>
+                </select>
+            </div>
+
             <textarea id="text-input" placeholder="Type your message here..."></textarea>
             <button id="speak-btn">Speak My Text</button>
         </div>
@@ -26,13 +40,9 @@
         <!-- PANEL 2: SPEECH TO TEXT (For Deaf Users) -->
         <div id="stt-panel" class="panel">
             <p class="instruction">Click the button below. When the other person speaks, their words will appear here.</p>
-            
-            <!-- This is the big text area where the speech will appear -->
             <div id="transcript-output" class="transcript-box">Waiting for speech...</div>
-
             <button id="listen-btn">🎤 Start Listening</button>
 
-            <!-- The visual equalizer -->
             <div id="equalizer" class="equalizer">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -40,7 +50,6 @@
                 <div class="bar"></div>
                 <div class="bar"></div>
             </div>
-            
             <p id="status"></p>
         </div>
 

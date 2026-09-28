@@ -24,7 +24,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* MODE SELECTOR STYLES */
 .mode-selector {
     display: flex;
     gap: 10px;
@@ -47,26 +46,52 @@ h1 {
     transition: all 0.2s;
 }
 
-/* This is the look of the SELECTED button */
 .mode-selector button.active {
     background: white;
     color: #007bff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* PANEL STYLES (Hidden vs Shown) */
 .panel {
-    display: none; /* Hide all panels by default */
+    display: none; 
 }
 
 .panel.active {
-    display: block; /* Show only the panel with the 'active' class */
+    display: block; 
 }
 
 .instruction {
     color: #555;
     font-size: 14px;
     margin-bottom: 15px;
+}
+
+/* NEW: Emotion dropdown styles */
+.emotion-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.emotion-container label {
+    font-weight: bold;
+    color: #333;
+    font-size: 16px;
+}
+
+#emotion-select {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    width: 60%;
 }
 
 textarea {
@@ -81,15 +106,14 @@ textarea {
     resize: vertical;
 }
 
-/* NEW: The box that shows the transcribed speech */
 .transcript-box {
     width: 100%;
     min-height: 120px;
     padding: 15px;
-    border: 2px dashed #28a745; /* Green dashed border */
+    border: 2px dashed #28a745; 
     border-radius: 8px;
     box-sizing: border-box;
-    font-size: 22px; /* Big text so it's easy to read */
+    font-size: 22px; 
     font-weight: bold;
     color: #333;
     margin-bottom: 1rem;
@@ -101,7 +125,6 @@ textarea {
     word-wrap: break-word;
 }
 
-/* BUTTON STYLES */
 button {
     border: none;
     padding: 12px 20px;
@@ -130,7 +153,6 @@ button {
     background-color: #218838;
 }
 
-/* EQUALIZER STYLES */
 .equalizer {
     display: none; 
     justify-content: center;
